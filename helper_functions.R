@@ -29,3 +29,8 @@ pif <- function (dgm, h = 0.2, n = 50, lims = c(0, 1, 0, 1))
     return(pif_list)
 }
 
+matrix_from_upper_tri <- function(upper_tri, square_matrix_width){
+  mat <- matrix( rep( 0, len=square_matrix_width^2), nrow = square_matrix_width)
+  mat[upper.tri(mat,diag=T)] <- upper_tri
+  return(mat)
+}
