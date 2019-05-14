@@ -57,10 +57,6 @@ pif_diag <- foreach(i=img_files, .packages=c('TDA', 'bmp', 'EBImage')) %dopar%{
         list(i, tmp_pif$dim_0, tmp_pif$dim_1)
         }
 stopCluster(cl)
-# Intitiate parallel environment
-no_cores <- detectCores()
-cl <- makeCluster(no_cores)
-registerDoParallel(cl)
 
 # Compute features 
 pif_list_0 <- lapply(pif_diag, function(x) x[[2]])
